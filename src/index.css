@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Design Tokens */
+  --plum: #8A3F7D;
+  --plum-dark: #6B2F60;
+  --orange: #C2561B;
+  --amber: #D9822B;
+  --brown: #3B2418;
+  --cream: #FBF8F5;
+  --white: #FFFFFF;
+  --line: #E9E2DA;
+
+  /* Semantic Mappings for UI & shadcn/ui */
+  --background: var(--white);
+  --foreground: var(--brown);
+  --card: var(--white);
+  --card-foreground: var(--brown);
+  --popover: var(--white);
+  --popover-foreground: var(--brown);
+  --primary: var(--plum);
+  --primary-foreground: var(--white);
+  --secondary: var(--cream);
+  --secondary-foreground: var(--brown);
+  --muted: var(--cream);
+  --muted-foreground: #665246;
+  --accent: var(--orange);
+  --accent-foreground: var(--white);
+  --destructive: #B42318;
+  --destructive-foreground: var(--white);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--plum);
+  --radius: 0.875rem;
+
+  /* Typography Families */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--brown);
+    background-color: var(--white);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-size: 17px;
+    line-height: 28px;
+    color: var(--brown);
+    background-color: var(--white);
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.375rem, 4.5vw, 3.5rem);
+    line-height: clamp(2.75rem, 5vw, 3.875rem);
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 3.2vw, 2.5rem);
+    line-height: clamp(2.25rem, 3.8vw, 3rem);
+    letter-spacing: -0.015em;
+  }
+
+  h3 {
+    font-size: clamp(1.375rem, 2vw, 1.625rem);
+    line-height: clamp(1.85rem, 2.6vw, 2.125rem);
+    letter-spacing: -0.01em;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--plum);
+    outline-offset: 2px;
+  }
+}
+
+.section-pad {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
+
+.arch-mask {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

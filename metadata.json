@@ -1,0 +1,6 @@
+{
+  "name": "Apostolic Carmel Girls' Secondary School",
+  "description": "Seeking the Heights — Catholic day and boarding girls' secondary school in Buru Buru Phase V, Nairobi, Kenya.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
