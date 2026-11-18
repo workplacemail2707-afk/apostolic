@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Our Campus",
+      "caption": "The Apostolic Carmel campus in Buru Buru Phase V.",
+      "category": "Campus",
+      "image": "hero_carmel_campus_1795001368170.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Science Laboratory",
+      "caption": "Students learning in the school laboratory.",
+      "category": "Academics",
+      "image": "life_academics_lab_1795001369517.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Music and Debate",
+      "caption": "Students taking part in music and debate.",
+      "category": "Music & Debate",
+      "image": "life_music_debate_1795001369409.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Netball",
+      "caption": "Netball on the school grounds.",
+      "category": "Sports",
+      "image": "life_sports_netball_1795001370293.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Boarding and Chapel",
+      "caption": "Boarding life and the school chapel.",
+      "category": "Boarding",
+      "image": "life_boarding_chapel_1795001370747.jpg"
+    }
+  ]
+}

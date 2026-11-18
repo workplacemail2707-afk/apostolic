@@ -7,33 +7,34 @@ import { SchoolImage } from '@/src/components/school/SchoolImage';
 import { cn } from '@/src/lib/utils';
 import type { GalleryItem } from '@/src/types/school';
 
+// The list comes from gallery.json at the project root (no backend needed).
+import galleryData from '../../gallery.json';
+
+// Every image in src/assets/images, keyed by its path. Vite bundles them and
+// gives each a final URL, so this works on Vercel.
+const imageUrls = import.meta.glob('../assets/images/*.{jpg,jpeg,png,webp,avif}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+function resolveImage(file: string): string {
+  const match = Object.keys(imageUrls).find((p) => p.endsWith('/' + file));
+  if (!match) console.warn('Gallery image not found in src/assets/images:', file);
+  return match ? imageUrls[match] : '';
+}
+
+const GALLERY_ITEMS: GalleryItem[] = (galleryData.items as Array<Record<string, unknown>>).map(
+  (item) => ({ ...item, image_url: resolveImage(String(item.image)) }) as unknown as GalleryItem
+);
+
 const CATEGORIES = ['All', 'Campus', 'Academics', 'Music & Debate', 'Sports', 'Liturgy', 'Boarding'];
 
 export function GalleryPage() {
-  const [items, setItems] = useState<GalleryItem[]>([]);
+  const items = GALLERY_ITEMS;
+  const loading = false;
   const [activeCategory, setActiveCategory] = useState('All');
-  const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function fetchGallery() {
-      setLoading(true);
-      try {
-        const res = await fetch('/api/gallery');
-        if (res.ok) {
-          const data = await res.json();
-          if (!cancelled) setItems(data.items || []);
-        }
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    }
-    fetchGallery();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const filtered =
     activeCategory === 'All'
